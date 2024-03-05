@@ -13,9 +13,9 @@ def toString(arr):
     return string
 
 
-
 username = input("Enter username: ")
 password = getpass()
+
 
 connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
@@ -26,14 +26,22 @@ cursor = connection.cursor()
 sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
 gradebook = sv.get_gradebook()
 
+addedData = True
+cursor.execute("SELECT studentName FROM allInfo WHERE studentName = ?", (username,))
+data = cursor.fetchone()
+if data is None:
+    addedData = False
+
+
 info = []
 for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
     info.append([(index+1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
 
-for index, i in enumerate(info):
-    cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
+if not addedData:
+    for index, i in enumerate(info):
+        cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
+    connection.commit()
 
-connection.commit()
 
 res = cursor.execute("SELECT className FROM allInfo")
 print(res.fetchall())
