@@ -2,8 +2,9 @@ from studentvue import StudentVue
 from getpass import getpass
 import sqlite3
 
+
 def toString(arr):
-    #this function returns a string formatted to add to the sqlite db
+    # this function returns a string formatted to add to the sqlite db
     string = "("
     string += ("'" + username + "', ")
     string += ("'" + arr[1] + "', ")
@@ -13,35 +14,40 @@ def toString(arr):
     return string
 
 
-username = input("Enter username: ")
-password = getpass()
+def addSchedule():
+    # cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
+    sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
+    gradebook = sv.get_gradebook()
 
+    addedData = True
+    cursor.execute("SELECT studentName FROM allInfo WHERE studentName = ?", (username,))
+    data = cursor.fetchone()
+    if data is None:
+        addedData = False
+
+    info = []
+    for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
+        info.append(
+            [(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
+
+    if not addedData:
+        for index, i in enumerate(info):
+            cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
+        connection.commit()
+
+
+# ****************************************************MAIN**********************************************************
 
 connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
 
-#this table has already been created
-#cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
+username = input("Enter username: ")
+password = getpass()
 
-sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
-gradebook = sv.get_gradebook()
+addSchedule()
 
-addedData = True
-cursor.execute("SELECT studentName FROM allInfo WHERE studentName = ?", (username,))
-data = cursor.fetchone()
-if data is None:
-    addedData = False
+# cursor.execute("CREATE TABLE ")
 
 
-info = []
-for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
-    info.append([(index+1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
-
-if not addedData:
-    for index, i in enumerate(info):
-        cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
-    connection.commit()
-
-
-res = cursor.execute("SELECT className FROM allInfo")
+res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username, ))
 print(res.fetchall())
