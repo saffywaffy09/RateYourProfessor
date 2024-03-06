@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added.">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="Formatted by creating methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709660944951</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Formatted by creating methods">
+      <option name="closed" value="true" />
+      <created>1709664435472</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709664435472</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -176,6 +185,7 @@
     <MESSAGE value="Incognito Password" />
     <MESSAGE value="Implemented a Sqlite db" />
     <MESSAGE value="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added." />
+    <MESSAGE value="Formatted by creating methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatted by creating methods" />
   </component>
 </project>

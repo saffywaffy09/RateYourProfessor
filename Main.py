@@ -27,13 +27,20 @@ def addSchedule():
 
     info = []
     for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
-        info.append(
-            [(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
+        info.append([(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
+        cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[2], ))
+
+        if len(cursor.fetchall()) == 0:
+            cursor.execute("INSERT INTO teacherInfo (column1, column2) VALUES (?, ?)", (column1_value, column2_value))
 
     if not addedData:
         for index, i in enumerate(info):
             cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
         connection.commit()
+
+
+
+#cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)")
 
 
 # ****************************************************MAIN**********************************************************
