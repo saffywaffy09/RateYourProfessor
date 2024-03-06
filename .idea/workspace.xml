@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="first commit">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="sharing some buggy code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +22,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2dFSYPS2yuqOj5GmUV47UTKuiee" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -34,19 +39,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/andreidorobantu/Documents/GitHub/RateYourProfessor&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Run" type="PythonConfigurationType" factoryName="Python">
+      <module name="projectIdea" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -99,44 +130,82 @@
       <option name="project" value="LOCAL" />
       <updated>1709603433488</updated>
     </task>
-    <task id="LOCAL-00006" summary="first commit">
+    <task id="LOCAL-00006" summary="Formatting fix">
       <option name="closed" value="true" />
-      <created>1709603575057</created>
+      <created>1709606275022</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1709603575057</updated>
+      <updated>1709606275022</updated>
     </task>
-    <task id="LOCAL-00007" summary="first commit">
+    <task id="LOCAL-00007" summary="Formatting fix">
       <option name="closed" value="true" />
-      <created>1709603719065</created>
+      <created>1709606320737</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1709603719065</updated>
+      <updated>1709606320737</updated>
     </task>
-    <task id="LOCAL-00008" summary="first commit">
+    <task id="LOCAL-00008" summary="Incognito Password">
       <option name="closed" value="true" />
-      <created>1709604497136</created>
+      <created>1709643930707</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1709604497136</updated>
+      <updated>1709643930707</updated>
     </task>
-    <task id="LOCAL-00009" summary="first commit">
+    <task id="LOCAL-00009" summary="Implemented a Sqlite db">
       <option name="closed" value="true" />
-      <created>1709607023651</created>
+      <created>1709657734925</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1709607023651</updated>
+      <updated>1709657734925</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added.">
+      <option name="closed" value="true" />
+      <created>1709660944951</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709660944951</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Formatted by creating methods">
+      <option name="closed" value="true" />
+      <created>1709664435472</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709664435472</updated>
+    </task>
+    <task id="LOCAL-00012" summary="sharing some buggy code">
+      <option name="closed" value="true" />
+      <created>1709742277047</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709742277047</updated>
+    </task>
+    <task id="LOCAL-00013" summary="sharing some buggy code">
+      <option name="closed" value="true" />
+      <created>1709742557247</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709742557247</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Formatting fix" />
+    <MESSAGE value="Incognito Password" />
+    <MESSAGE value="Implemented a Sqlite db" />
+    <MESSAGE value="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added." />
+    <MESSAGE value="Formatted by creating methods" />
+    <MESSAGE value="sharing some buggy code" />
+    <option name="LAST_COMMIT_MESSAGE" value="sharing some buggy code" />
   </component>
 </project>
