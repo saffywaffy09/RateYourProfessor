@@ -15,7 +15,6 @@ def toString(arr):
 
 
 def addSchedule():
-    # cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
     gradebook = sv.get_gradebook()
 
@@ -28,10 +27,9 @@ def addSchedule():
     info = []
     for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
         info.append([(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
-        cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[index][2], ))
-
-        if len(cursor.fetchall()) == 0:
-            cursor.execute("INSERT INTO teacherInfo (column1, column2) VALUES (?, ?)", (0, 0))
+        instancesOfTeacher = cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[index][2], )).fetchall()
+        if len(instancesOfTeacher) == 0:
+            cursor.execute(f"INSERT INTO teacherInfo VALUES \n\t('{info[index][2]}', '{info[index][3]}', 0, '{str([])}', '{str([])}', '{str([])}')")
 
     if not addedData:
         for index, i in enumerate(info):
@@ -40,14 +38,14 @@ def addSchedule():
 
 
 
-#cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)")
 
 
 # ****************************************************MAIN**********************************************************
 
 connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
-
+# cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)")
+# cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
 username = input("Enter username: ")
 password = getpass()
 
