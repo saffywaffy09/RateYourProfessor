@@ -28,10 +28,10 @@ def addSchedule():
     info = []
     for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
         info.append([(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
-        cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[2], ))
+        cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[index][2], ))
 
         if len(cursor.fetchall()) == 0:
-            cursor.execute("INSERT INTO teacherInfo (column1, column2) VALUES (?, ?)", (column1_value, column2_value))
+            cursor.execute("INSERT INTO teacherInfo (column1, column2) VALUES (?, ?)", (0, 0))
 
     if not addedData:
         for index, i in enumerate(info):
