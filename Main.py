@@ -26,10 +26,17 @@ def addSchedule():
 
     info = []
     for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
-        info.append([(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
-        instancesOfTeacher = cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?", (info[index][2], )).fetchall()
+        info.append(
+            [(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
+        instancesOfTeacher = cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?",
+                                            (info[index][2],)).fetchall()
         if len(instancesOfTeacher) == 0:
-            cursor.execute(f"INSERT INTO teacherInfo VALUES \n\t('{info[index][2]}', '{info[index][3]}', 0, '{str([])}', '{str([])}', '{str([])}')")
+            cursor.execute("INSERT INTO teacherInfo VALUES (?, ?, ?, ?, ?, ?)",
+                           (info[index][2], info[index][3], -1 , str([info[index][1]]), str([]), str([])))
+        else:
+            #have to check whether the teacher has the class that we currently have and want to add
+            #idk how to do this YET
+            print("laChancla")
 
     if not addedData:
         for index, i in enumerate(info):
@@ -37,15 +44,16 @@ def addSchedule():
         connection.commit()
 
 
-
-
-
 # ****************************************************MAIN**********************************************************
 
 connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
-# cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)")
-# cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
+
+#ONE USE ---> Creates SQLITE DB TABLES
+#cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)")
+#cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
+#cursor.execute("CREATE TABLE classInfo(className, classTeachers, classScore, classComments, indivScore)")
+
 username = input("Enter username: ")
 password = getpass()
 
@@ -54,5 +62,5 @@ addSchedule()
 # cursor.execute("CREATE TABLE ")
 
 
-res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username, ))
+res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username,))
 print(res.fetchall())
