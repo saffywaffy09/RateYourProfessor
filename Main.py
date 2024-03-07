@@ -13,6 +13,8 @@ def toString(arr):
     string += (str(arr[4]) + ")")
     return string
 
+def toArr (s):
+    return s.strip("][").replace("'", "").split(", ")
 
 def addSchedule():
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
@@ -36,7 +38,13 @@ def addSchedule():
         else:
             #have to check whether the teacher has the class that we currently have and want to add
             #idk how to do this YET
-            print("laChancla")
+            # check if the class that we had the teacher for, if the teacher has that class
+            currClass = i["@Title"]
+            if not currClass in toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0]):
+                arr = toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0])
+                arr.append(currClass)
+                cursor.execute("UPDATE teacherInfo SET teacherClasses = ? WHERE teacherName = ?", (str(arr), i["@Staff"]))
+            pass
 
     if not addedData:
         for index, i in enumerate(info):
@@ -63,4 +71,3 @@ addSchedule()
 
 
 res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username,))
-print(res.fetchall())
