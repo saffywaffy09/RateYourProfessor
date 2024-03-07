@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="A better SQLITE insertion of data and the creation of a new classInfo table">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="added stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projectIdea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectIdea.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <list id="1163a2cb-d808-47fb-97e5-9355dd500534" name="Changes by farid" comment="">
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +36,9 @@
       <ranges>
         <range start1="15" end1="15" start2="15" end2="17" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
         <range start1="27" end1="27" start2="29" end2="30" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
-        <range start1="36" end1="39" start2="39" end2="47" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="60" end1="62" start2="68" end2="68" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="32" end1="32" start2="35" end2="49" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="43" end1="44" start2="60" end2="60" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="50" end1="50" start2="66" end2="67" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
       </ranges>
     </file>
   </component>
@@ -216,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709767192602</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added stuff">
+      <option name="closed" value="true" />
+      <created>1709815916405</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709815916405</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +251,7 @@
     <MESSAGE value="Formatted by creating methods" />
     <MESSAGE value="sharing some buggy code" />
     <MESSAGE value="A better SQLITE insertion of data and the creation of a new classInfo table" />
-    <option name="LAST_COMMIT_MESSAGE" value="A better SQLITE insertion of data and the creation of a new classInfo table" />
+    <MESSAGE value="added stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="added stuff" />
   </component>
 </project>
