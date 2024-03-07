@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="added stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/projectIdea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectIdea.iml" afterDir="false" />
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="added classInfo usage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
+    </list>
+    <list id="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" name="Changes by 172834" comment="">
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <list id="1163a2cb-d808-47fb-97e5-9355dd500534" name="Changes by farid" comment="">
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
@@ -34,11 +34,12 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/Main.py">
       <ranges>
-        <range start1="15" end1="15" start2="15" end2="17" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
-        <range start1="27" end1="27" start2="29" end2="30" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
-        <range start1="32" end1="32" start2="35" end2="49" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="43" end1="44" start2="60" end2="60" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="50" end1="50" start2="66" end2="67" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="4" end1="4" start2="4" end2="11" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
+        <range start1="5" end1="5" start2="12" end2="22" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
+        <range start1="15" end1="15" start2="32" end2="34" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
+        <range start1="27" end1="27" start2="46" end2="47" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
+        <range start1="65" end1="65" start2="85" end2="102" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
+        <range start1="79" end1="83" start2="116" end2="118" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
       </ranges>
     </file>
   </component>
@@ -227,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709815916405</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added classInfo usage">
+      <option name="closed" value="true" />
+      <created>1709818326271</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709818326271</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,6 +261,7 @@
     <MESSAGE value="sharing some buggy code" />
     <MESSAGE value="A better SQLITE insertion of data and the creation of a new classInfo table" />
     <MESSAGE value="added stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="added stuff" />
+    <MESSAGE value="added classInfo usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="added classInfo usage" />
   </component>
 </project>

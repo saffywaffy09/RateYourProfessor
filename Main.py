@@ -77,7 +77,5 @@ username = input("Enter username: ")
 password = getpass()
 
 addSchedule()
-
-
-res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username,))
-print(res.fetchall())
+currUser = createUser()
+currUser.teacherComment(0, 1)
