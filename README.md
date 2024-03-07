@@ -1,1 +1,1 @@
-Lowkey Spaghetiito Code
+Worst code ive ever written
