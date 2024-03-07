@@ -13,8 +13,6 @@ def toString(arr):
     string += (str(arr[4]) + ")")
     return string
 
-def toArr (s):
-    return s.strip("][").replace("'", "").split(", ")
 
 def addSchedule():
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
@@ -36,14 +34,13 @@ def addSchedule():
             cursor.execute("INSERT INTO teacherInfo VALUES (?, ?, ?, ?, ?, ?)",
                            (info[index][2], info[index][3], -1 , str([info[index][1]]), str([]), str([])))
         else:
-            #have to check whether the teacher has the class that we currently have and want to add
-            #idk how to do this YET
-            # check if the class that we had the teacher for, if the teacher has that class
+            #what this code does is check whether the teacher already has the same class added and if not adds it into the teacher info database
             currClass = i["@Title"]
             if not currClass in toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0]):
                 arr = toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0])
                 arr.append(currClass)
                 cursor.execute("UPDATE teacherInfo SET teacherClasses = ? WHERE teacherName = ?", (str(arr), i["@Staff"]))
+
             pass
 
     if not addedData:
@@ -67,7 +64,6 @@ password = getpass()
 
 addSchedule()
 
-# cursor.execute("CREATE TABLE ")
-
 
 res = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username,))
+print(res.fetchall())

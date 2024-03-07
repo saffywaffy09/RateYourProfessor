@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/projectIdea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectIdea.iml" afterDir="false" />
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="A better SQLITE insertion of data and the creation of a new classInfo table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
-    <list id="c840f3cf-55cf-4ac0-93fd-77750694e9f8" name="Changes by andreidorobantu" comment="">
+    <list id="1163a2cb-d808-47fb-97e5-9355dd500534" name="Changes by farid" comment="">
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +27,15 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/Main.py">
       <ranges>
-        <range start1="15" end1="15" start2="15" end2="17" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="27" end1="27" start2="29" end2="30" changelist="c840f3cf-55cf-4ac0-93fd-77750694e9f8" />
-        <range start1="38" end1="39" start2="41" end2="48" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="15" end1="15" start2="15" end2="17" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
+        <range start1="27" end1="27" start2="29" end2="30" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
+        <range start1="36" end1="39" start2="39" end2="47" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
+        <range start1="60" end1="62" start2="68" end2="68" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
       </ranges>
     </file>
   </component>
@@ -53,18 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.Main.executor": "Run",
-    "Python.Run.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/andreidorobantu/Documents/GitHub/RateYourProfessor",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/andreidorobantu/Documents/GitHub/RateYourProfessor&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Run" type="PythonConfigurationType" factoryName="Python">
       <module name="projectIdea" />
@@ -92,7 +91,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -209,8 +208,27 @@
       <option name="project" value="LOCAL" />
       <updated>1709742557247</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="A better SQLITE insertion of data and the creation of a new classInfo table">
+      <option name="closed" value="true" />
+      <created>1709767192602</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709767192602</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -221,6 +239,7 @@
     <MESSAGE value="Implemented adding only new data. It searches based on userID and if they already have data added, no existing data will be added." />
     <MESSAGE value="Formatted by creating methods" />
     <MESSAGE value="sharing some buggy code" />
-    <option name="LAST_COMMIT_MESSAGE" value="sharing some buggy code" />
+    <MESSAGE value="A better SQLITE insertion of data and the creation of a new classInfo table" />
+    <option name="LAST_COMMIT_MESSAGE" value="A better SQLITE insertion of data and the creation of a new classInfo table" />
   </component>
 </project>
