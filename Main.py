@@ -78,4 +78,5 @@ password = getpass()
 
 addSchedule()
 currUser = createUser()
-currUser.teacherComment(0, 1)
+#WE SHOULD ONLY USE THE TEACHER COMMENT SO THAT THE SCORES AND COMMENTS STICK TOGETHER
+currUser.teacherComment(0, 1, 'She looks at geeks for geeks')
