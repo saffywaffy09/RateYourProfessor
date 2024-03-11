@@ -1,0 +1,69 @@
+Index: Main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from studentvue import StudentVue\nfrom getpass import getpass\nimport sqlite3\n\n\ndef toString(arr):\n    # this function returns a string formatted to add to the sqlite db\n    string = \"(\"\n    string += (\"'\" + username + \"', \")\n    string += (\"'\" + arr[1] + \"', \")\n    string += (\"'\" + arr[2] + \"', \")\n    string += (\"'\" + arr[3] + \"', \")\n    string += (str(arr[4]) + \")\")\n    return string\n\n\ndef addSchedule():\n    sv = StudentVue(username, password, \"https://md-mcps-psv.edupoint.com\")\n    gradebook = sv.get_gradebook()\n\n    addedData = True\n    cursor.execute(\"SELECT studentName FROM allInfo WHERE studentName = ?\", (username,))\n    data = cursor.fetchone()\n    if data is None:\n        addedData = False\n\n    info = []\n    for index, i in enumerate(gradebook[\"Gradebook\"][\"Courses\"][\"Course\"]):\n        info.append(\n            [(index + 1), i[\"@Title\"], i[\"@Staff\"], i[\"@StaffEMail\"], i[\"Marks\"][\"Mark\"][\"@CalculatedScoreRaw\"]])\n        instancesOfTeacher = cursor.execute(\"SELECT teacherName FROM teacherInfo WHERE teacherName = ?\",\n                                            (info[index][2],)).fetchall()\n        instanceOfClass = cursor.execute(\"SELECT className FROM classInfo WHERE className = ?\", (info[index][1], )).fetchall()\n\n        if len(instanceOfClass) == 0:\n            cursor.execute(\"INSERT INTO classInfo VALUES (?, ?, ?, ?, ?)\",\n                           (info[index][1], info[index][2], -1, str([]), str([])))\n        else:\n            currTeacher = info[index][2]\n            if not currTeacher in toArr(cursor.execute(\"SELECT classTeachers FROM classInfo WHERE className = ?\", (info[index][1], )).fetchone()[0]):\n                arr = toArr(cursor.execute(\"SELECT classTeachers FROM classInfo WHERE className = ?\", (info[index][1], )).fetchone()[0])\n                arr.append(currTeacher)\n                cursor.execute(\"UPDATE classInfo SET classTeachers = ? WHERE className = ?\", (str(arr), info[index][1]))\n\n\n\n        if len(instancesOfTeacher) == 0:\n            cursor.execute(\"INSERT INTO teacherInfo VALUES (?, ?, ?, ?, ?, ?)\",\n                           (info[index][2], info[index][3], -1 , str([info[index][1]]), str([]), str([])))\n        else:\n            #what this code does is check whether the teacher already has the same class added and if not adds it into the teacher info database\n            currClass = i[\"@Title\"]\n            if not currClass in toArr(cursor.execute(\"SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?\", (i[\"@Staff\"], )).fetchone()[0]):\n                arr = toArr(cursor.execute(\"SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?\", (i[\"@Staff\"], )).fetchone()[0])\n                arr.append(currClass)\n                cursor.execute(\"UPDATE teacherInfo SET teacherClasses = ? WHERE teacherName = ?\", (str(arr), i[\"@Staff\"]))\n\n\n    if not addedData:\n        for index, i in enumerate(info):\n            cursor.execute(\"INSERT INTO allInfo VALUES \\n\\t\" + toString(i))\n        connection.commit()\n\n    connection.commit()\n\n# ****************************************************MAIN**********************************************************\n\nconnection = sqlite3.connect(\"example.db\")\ncursor = connection.cursor()\n\n#ONE USE ---> Creates SQLITE DB TABLES\n#cursor.execute(\"CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore)\")\n#cursor.execute(\"CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)\")\n#cursor.execute(\"CREATE TABLE classInfo(className, classTeachers, classScore, classComments, indivScore)\")\n\nusername = input(\"Enter username: \")\npassword = getpass()\n\naddSchedule()\ncurrUser = createUser()\n#WE SHOULD ONLY USE THE TEACHER COMMENT SO THAT THE SCORES AND COMMENTS STICK TOGETHER\ncurrUser.teacherComment(0, 1, 'She looks at geeks for geeks')\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Main.py b/Main.py
+--- a/Main.py	(revision 0918615ff720a726b0e8dea54eb142f89ed65c1b)
++++ b/Main.py	(date 1709826775107)
+@@ -2,7 +2,34 @@
+ from getpass import getpass
+ import sqlite3
+ 
++class User:
++    def __init__ (self, username, userId, classes, teachers, grades):
++        self.username = username
++        self.userId = userId
++        self.classes = classes
++        self.teachers = teachers
++        self.grades = grades
++
++    def teacherComment (self, index, score, comment):
++        self.updateTeacherScore(index, score)
++        commentArr = toArr(cursor.execute("SELECT indivComments FROM teacherInfo WHERE teacherName = ?", (self.teachers[index], )).fetchone()[0])
++        if commentArr[0] == '': commentArr = []
++        commentArr.append(comment)
++        cursor.execute("UPDATE teacherInfo SET indivComments = ? WHERE teacherNAME = ?", (str(commentArr), self.teachers[index], ))
++        connection.commit()
++    def updateTeacherScore (self, index, score):
++        currTeacher = self.teachers[index]
++        arr = toArr(cursor.execute("SELECT indivScore FROM teacherInfo WHERE teacherName = ?", (currTeacher, )).fetchone()[0])
++        if arr[0] == '': arr = []
+ 
++        arr = [eval(i) for i in arr]
++        arr.append(score)
++
++
++        averageScore = sum(arr) / len(arr)
++        cursor.execute("UPDATE teacherInfo SET indivScore = ? WHERE teacherName = ?", (str(arr), currTeacher, ))
++        cursor.execute("UPDATE teacherInfo SET teacherScore = ? WHERE teacherName = ?", (averageScore, currTeacher, ))
++        connection.commit()
+ def toString(arr):
+     # this function returns a string formatted to add to the sqlite db
+     string = "("
+@@ -63,6 +90,23 @@
+ 
+     connection.commit()
+ 
++def createUser ():
++    sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
++    studentInfo = sv.get_student_info()
++    studentName = studentInfo["StudentInfo"]["FormattedName"]["$"]
++    tupleTeacherList = cursor.execute("SELECT teacherName FROM allInfo WHERE studentName = ?", (username, )).fetchall()
++    teachers = []
++    for i in range(len(tupleTeacherList)):
++        teachers.append(tupleTeacherList[i][0])
++    tupleClassList = cursor.execute("SELECT className FROM allInfo WHERE studentName = ?", (username, )).fetchall()
++    classes = []
++    for i in range(len(tupleClassList)):
++        classes.append(tupleClassList[i][0])
++    tupleGradesList = cursor.execute("SELECT gradeInClass FROM allInfo WHERE studentName = ?", (username, )).fetchall()
++    grades = []
++    for i in range(len(tupleGradesList)):
++        grades.append(tupleGradesList[i][0])
++    return User(studentName, username, classes, teachers, grades)
+ # ****************************************************MAIN**********************************************************
+ 
+ connection = sqlite3.connect("example.db")

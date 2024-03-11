@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="added stuff">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="some random files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
-    </list>
-    <list id="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" name="Changes by 172834" comment="">
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-    </list>
-    <list id="1163a2cb-d808-47fb-97e5-9355dd500534" name="Changes by farid" comment="Changes by farid">
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,18 +25,6 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Main.py">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="23" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
-        <range start1="5" end1="5" start2="24" end2="32" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
-        <range start1="15" end1="15" start2="42" end2="44" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
-        <range start1="27" end1="27" start2="56" end2="57" changelist="1163a2cb-d808-47fb-97e5-9355dd500534" />
-        <range start1="65" end1="65" start2="95" end2="112" changelist="05a4e160-4f2c-4fc6-9ac2-a1c56e8a1c06" />
-        <range start1="80" end1="81" start2="127" end2="129" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -245,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709821408531</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="found out overloading doesn;t work">
+      <option name="closed" value="true" />
+      <created>1709826789888</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1709826789888</updated>
+    </task>
+    <task id="LOCAL-00019" summary="some random files">
+      <option name="closed" value="true" />
+      <created>1709826872622</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709826872622</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +269,9 @@
     <MESSAGE value="A better SQLITE insertion of data and the creation of a new classInfo table" />
     <MESSAGE value="added classInfo usage" />
     <MESSAGE value="added stuff" />
+    <MESSAGE value="found out overloading doesn;t work" />
     <MESSAGE value="Changes by farid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by farid" />
+    <MESSAGE value="some random files" />
+    <option name="LAST_COMMIT_MESSAGE" value="some random files" />
   </component>
 </project>
