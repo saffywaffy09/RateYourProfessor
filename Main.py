@@ -10,17 +10,32 @@ class User:
         self.teachers = teachers
         self.grades = grades
 
-    def teacherComment (self, index, score, comment):
-        self.updateTeacherScore(index, score)
-        commentArr = toArr(cursor.execute("SELECT indivComments FROM teacherInfo WHERE teacherName = ?", (self.teachers[index], )).fetchone()[0])
-        if commentArr[0] == '': commentArr = []
-        commentArr.append(comment)
-        cursor.execute("UPDATE teacherInfo SET indivComments = ? WHERE teacherNAME = ?", (str(commentArr), self.teachers[index], ))
-        connection.commit()
-    def updateTeacherScore (self, index, score):
+    def teacherComment (self, index, score, comment="$"):
         currTeacher = self.teachers[index]
-        arr = toArr(cursor.execute("SELECT indivScore FROM teacherInfo WHERE teacherName = ?", (currTeacher, )).fetchone()[0])
-        if arr[0] == '': arr = []
+
+        userIdArr = toArr(cursor.execute("SELECT commentID FROM teacherInfo WHERE name = ?", (currTeacher, )).fetchone()[0])
+        if not self.userId in userIdArr:
+            if userIdArr[0] == '': userIdArr = []
+            userIdArr.append(self.userId)
+            cursor.execute("UPDATE teacherInfo SET commentID = ? WHERE name = ?", (str(userIdArr), currTeacher))
+
+            arr = toArr(cursor.execute("SELECT scores FROM teacherInfo WHERE name = ?", (currTeacher,)).fetchone()[0])
+            if arr[0] == '': arr = []
+
+            arr = [eval(i) for i in arr]
+            arr.append(score)
+
+            averageScore = sum(arr) / len(arr)
+            cursor.execute("UPDATE teacherInfo SET scores = ? WHERE name = ?", (str(arr), currTeacher,))
+            cursor.execute("UPDATE teacherInfo SET averageScore = ? WHERE name = ?", (averageScore, currTeacher,))
+            connection.commit()
+
+            commentArr = toArr(cursor.execute("SELECT comments FROM teacherInfo WHERE name = ?", (self.teachers[index], )).fetchone()[0])
+            if commentArr[0] == '': commentArr = []
+            commentArr.append(comment)
+            cursor.execute("UPDATE teacherInfo SET comments = ? WHERE name = ?", (str(commentArr), self.teachers[index], ))
+
+            connection.commit()
 
         arr = [eval(i) for i in arr]
         arr.append(score)
@@ -62,8 +77,8 @@ def addSchedule():
         instanceOfClass = cursor.execute("SELECT className FROM classInfo WHERE className = ?", (info[index][1], )).fetchall()
 
         if len(instanceOfClass) == 0:
-            cursor.execute("INSERT INTO classInfo VALUES (?, ?, ?, ?, ?)",
-                           (info[index][1], info[index][2], -1, str([]), str([])))
+            cursor.execute("INSERT INTO classInfo VALUES (?, ?, ?, ?, ?, ?)",
+                           (info[index][1], info[index][2], -1, str([]), str([]), str([]), ))
         else:
             currTeacher = info[index][2]
             if not currTeacher in toArr(cursor.execute("SELECT classTeachers FROM classInfo WHERE className = ?", (info[index][1], )).fetchone()[0]):
@@ -115,9 +130,9 @@ connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
 
 #ONE USE ---> Creates SQLITE DB TABLES
-#cursor.execute("CREATE TABLE teacherInfo(teacherName, teacherEmail, teacherScore, teacherClasses, indivComments, indivScore, studentComments)")
+#cursor.execute("CREATE TABLE teacherInfo(name, email, averageScore, teacherClasses, comments, scores, commentID)")
 #cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
-#cursor.execute("CREATE TABLE classInfo(className, classTeachers, classScore, classComments, indivScore)")
+#cursor.execute("CREATE TABLE classInfo(name, classTeachers, averageScore, comments, scores, commentID)")
 
 username = input("Enter username: ")
 password = getpass()
