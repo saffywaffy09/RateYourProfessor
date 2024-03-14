@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="Added a class">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="did stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <list id="eee338e1-9085-4c28-b980-e505d1c313b1" name="Changes by 172834" comment="">
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
@@ -28,26 +26,6 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Main.py">
-      <ranges>
-        <range start1="12" end1="23" start2="12" end2="38" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="24" end1="26" start2="39" end2="51" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="27" end1="31" start2="52" end2="65" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="59" end1="60" start2="93" end2="94" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="61" end1="62" start2="95" end2="96" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="64" end1="66" start2="98" end2="100" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="68" end1="70" start2="102" end2="104" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="71" end1="72" start2="105" end2="106" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="81" end1="83" start2="115" end2="117" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="84" end1="85" start2="118" end2="119" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="111" end1="111" start2="145" end2="146" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-        <range start1="117" end1="118" start2="152" end2="153" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="119" end1="120" start2="154" end2="155" changelist="e9c747a7-f4d4-4faf-b534-37bd781c08ac" />
-        <range start1="127" end1="128" start2="162" end2="164" changelist="eee338e1-9085-4c28-b980-e505d1c313b1" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -274,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710158009833</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="did stuff">
+      <option name="closed" value="true" />
+      <created>1710163035559</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710163035559</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -304,6 +290,7 @@
     <MESSAGE value="Changes by farid" />
     <MESSAGE value="some random files" />
     <MESSAGE value="Added a class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a class" />
+    <MESSAGE value="did stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="did stuff" />
   </component>
 </project>
