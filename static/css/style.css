@@ -1,0 +1,14 @@
+@keyframes rainbow {
+    0% { color: rgb(255, 0, 0); } /* Red */
+    16% { color: rgb(255, 255, 0); } /* Yellow */
+    33% { color: rgb(0, 255, 0); } /* Green */
+    50% { color: rgb(0, 255, 255); } /* Cyan */
+    66% { color: rgb(0, 0, 255); } /* Blue */
+    83% { color: rgb(255, 0, 255); } /* Magenta */
+    100% { color: rgb(255, 0, 0); } /* Red */
+}
+
+h2 {
+    font-size: 36px;
+    animation: rainbow 6s infinite;
+}

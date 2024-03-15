@@ -1,7 +1,7 @@
 from studentvue import StudentVue
 from getpass import getpass
 import sqlite3
-
+from flask import Flask
 class User:
     def __init__ (self, username, userId, classes, teachers, grades):
         self.username = username
@@ -148,6 +148,17 @@ def createUser ():
 
 connection = sqlite3.connect("example.db")
 cursor = connection.cursor()
+
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def helloworld ():
+    return "hello world"
+#
+# if __name__ == '__main__:':
+#     app.run(debug=True)
 
 #ONE USE ---> Creates SQLITE DB TABLES
 #cursor.execute("CREATE TABLE teacherInfo(name, email, averageScore, teacherClasses, comments, scores, commentID)")
