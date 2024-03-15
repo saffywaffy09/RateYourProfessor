@@ -63,7 +63,7 @@ class User:
             connection.commit()
 
 
-def toString(arr):
+def toString(arr, username):
     # this function returns a string formatted to add to the sqlite db
     string = "("
     string += ("'" + username + "', ")
@@ -73,10 +73,14 @@ def toString(arr):
     string += (str(arr[4]) + ")")
     return string
 
+def get_db_connection():
+    conn = sqlite3.connect('example.db', check_same_thread=False)
+    return conn
+
 def toArr (s):
     return s.strip("][").replace("'", "").split(", ")
 
-def addSchedule():
+def addSchedule(username, password):
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
     gradebook = sv.get_gradebook()
 
@@ -121,12 +125,12 @@ def addSchedule():
 
     if not addedData:
         for index, i in enumerate(info):
-            cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i))
+            cursor.execute("INSERT INTO allInfo VALUES \n\t" + toString(i, username))
         connection.commit()
 
     connection.commit()
 
-def createUser ():
+def createUser (username, password):
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
     studentInfo = sv.get_student_info()
     studentName = studentInfo["StudentInfo"]["FormattedName"]["$"]
@@ -142,11 +146,12 @@ def createUser ():
     grades = []
     for i in range(len(tupleGradesList)):
         grades.append(tupleGradesList[i][0])
+    addSchedule(username, password)
     return User(studentName, username, classes, teachers, grades)
 
 # ****************************************************MAIN**********************************************************
 
-connection = sqlite3.connect("example.db")
+connection = sqlite3.connect("example.db", check_same_thread=False)
 cursor = connection.cursor()
 
 
@@ -156,20 +161,17 @@ app = Flask(__name__)
 @app.route("/")
 def helloworld ():
     return "hello world"
-#
-# if __name__ == '__main__:':
-#     app.run(debug=True)
 
 #ONE USE ---> Creates SQLITE DB TABLES
 #cursor.execute("CREATE TABLE teacherInfo(name, email, averageScore, teacherClasses, comments, scores, commentID)")
 #cursor.execute("CREATE TABLE allInfo(studentName, className, teacherName, teacherEmail, gradeInClass)")
 #cursor.execute("CREATE TABLE classInfo(name, classTeachers, averageScore, comments, scores, commentID)")
 
-username = input("Enter username: ")
-password = getpass()
+#username = input("Enter username: ")
+#password = getpass()
 
-addSchedule()
-currUser = createUser()
+#addSchedule()
+#currUser = createUser(username, password)
 #WE SHOULD ONLY USE THE TEACHER COMMENT SO THAT THE SCORES AND COMMENTS STICK TOGETHER
-currUser.teacherComment(7, 10)
-currUser.classComment(0, 0, "bad bad class do not take")
+#currUser.teacherComment(7, 10)
+#currUser.classComment(0, 0, "bad bad class do not take")

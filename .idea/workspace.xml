@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="did stuff">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="really bad stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
-    <list id="eee338e1-9085-4c28-b980-e505d1c313b1" name="Changes by 172834" comment="">
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
+    <list id="eee338e1-9085-4c28-b980-e505d1c313b1" name="Changes by 172834" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -286,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710504700544</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="really bad stuff">
+      <option name="closed" value="true" />
+      <created>1710509431697</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710509431697</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,6 +324,7 @@
     <MESSAGE value="some random files" />
     <MESSAGE value="Added a class" />
     <MESSAGE value="did stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="did stuff" />
+    <MESSAGE value="really bad stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="really bad stuff" />
   </component>
 </project>
