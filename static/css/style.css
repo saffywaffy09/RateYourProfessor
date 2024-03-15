@@ -8,7 +8,8 @@
     100% { color: rgb(255, 0, 0); } /* Red */
 }
 
-h2 {
+h1 {
     font-size: 36px;
-    animation: rainbow 6s infinite;
+    animation: rainbow 3s infinite !important;
 }
+
