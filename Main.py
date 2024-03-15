@@ -37,13 +37,32 @@ class User:
 
             connection.commit()
 
-        arr = [eval(i) for i in arr]
-        arr.append(score)
+    def classComment (self, index, score, comment=""):
+        currClass = self.classes[index]
+        userIdArr = toArr(cursor.execute("SELECT commentID FROM classInfo WHERE name = ?", (currClass, )).fetchone()[0])
+        if not self.userId in userIdArr:
+            if userIdArr[0] == '': userIdArr = []
+            userIdArr.append(self.userId)
+            cursor.execute("UPDATE classInfo SET commentID = ? WHERE name = ?", (str(userIdArr), currClass))
+            scoreArr = toArr(cursor.execute("SELECT scores FROM classInfo WHERE name = ?", (currClass, )).fetchone()[0])
+            if scoreArr[0] == '': scoreArr = []
 
-        averageScore = sum(arr) / len(arr)
-        cursor.execute("UPDATE teacherInfo SET indivScore = ? WHERE teacherName = ?", (str(arr), currTeacher, ))
-        cursor.execute("UPDATE teacherInfo SET teacherScore = ? WHERE teacherName = ?", (averageScore, currTeacher, ))
-        connection.commit()
+            scoreArr = [eval(i) for i in scoreArr]
+            scoreArr.append(score)
+
+            averageScore = sum(scoreArr) / len(scoreArr)
+            cursor.execute("UPDATE classInfo SET scores = ? WHERE name = ?", (str(scoreArr), currClass,))
+            cursor.execute("UPDATE classInfo SET averageScore = ? WHERE name = ?", (averageScore, currClass,))
+            connection.commit()
+            commentArr = toArr(cursor.execute("SELECT comments FROM classInfo WHERE name = ?", (currClass, )).fetchone()[0])
+            if commentArr[0] == '': commentArr = []
+            commentArr.append(comment)
+            cursor.execute("UPDATE classInfo SET comments = ? WHERE name = ?",
+                           (str(commentArr), currClass,))
+
+            connection.commit()
+
+
 def toString(arr):
     # this function returns a string formatted to add to the sqlite db
     string = "("
@@ -72,19 +91,19 @@ def addSchedule():
     for index, i in enumerate(gradebook["Gradebook"]["Courses"]["Course"]):
         info.append(
             [(index + 1), i["@Title"], i["@Staff"], i["@StaffEMail"], i["Marks"]["Mark"]["@CalculatedScoreRaw"]])
-        instancesOfTeacher = cursor.execute("SELECT teacherName FROM teacherInfo WHERE teacherName = ?",
+        instancesOfTeacher = cursor.execute("SELECT name FROM teacherInfo WHERE name = ?",
                                             (info[index][2],)).fetchall()
-        instanceOfClass = cursor.execute("SELECT className FROM classInfo WHERE className = ?", (info[index][1], )).fetchall()
+        instanceOfClass = cursor.execute("SELECT name FROM classInfo WHERE name = ?", (info[index][1], )).fetchall()
 
         if len(instanceOfClass) == 0:
             cursor.execute("INSERT INTO classInfo VALUES (?, ?, ?, ?, ?, ?)",
                            (info[index][1], info[index][2], -1, str([]), str([]), str([]), ))
         else:
             currTeacher = info[index][2]
-            if not currTeacher in toArr(cursor.execute("SELECT classTeachers FROM classInfo WHERE className = ?", (info[index][1], )).fetchone()[0]):
-                arr = toArr(cursor.execute("SELECT classTeachers FROM classInfo WHERE className = ?", (info[index][1], )).fetchone()[0])
+            if not currTeacher in toArr(cursor.execute("SELECT classTeachers FROM classInfo WHERE name = ?", (info[index][1], )).fetchone()[0]):
+                arr = toArr(cursor.execute("SELECT classTeachers FROM classInfo WHERE name = ?", (info[index][1], )).fetchone()[0])
                 arr.append(currTeacher)
-                cursor.execute("UPDATE classInfo SET classTeachers = ? WHERE className = ?", (str(arr), info[index][1]))
+                cursor.execute("UPDATE classInfo SET classTeachers = ? WHERE name = ?", (str(arr), info[index][1]))
 
 
 
@@ -94,10 +113,10 @@ def addSchedule():
         else:
             #what this code does is check whether the teacher already has the same class added and if not adds it into the teacher info database
             currClass = i["@Title"]
-            if not currClass in toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0]):
-                arr = toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE teacherName = ?", (i["@Staff"], )).fetchone()[0])
+            if not currClass in toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE name = ?", (i["@Staff"], )).fetchone()[0]):
+                arr = toArr(cursor.execute("SELECT teacherClasses FROM teacherInfo WHERE name = ?", (i["@Staff"], )).fetchone()[0])
                 arr.append(currClass)
-                cursor.execute("UPDATE teacherInfo SET teacherClasses = ? WHERE teacherName = ?", (str(arr), i["@Staff"]))
+                cursor.execute("UPDATE teacherInfo SET teacherClasses = ? WHERE name = ?", (str(arr), i["@Staff"]))
 
 
     if not addedData:
@@ -124,6 +143,7 @@ def createUser ():
     for i in range(len(tupleGradesList)):
         grades.append(tupleGradesList[i][0])
     return User(studentName, username, classes, teachers, grades)
+
 # ****************************************************MAIN**********************************************************
 
 connection = sqlite3.connect("example.db")
@@ -140,4 +160,5 @@ password = getpass()
 addSchedule()
 currUser = createUser()
 #WE SHOULD ONLY USE THE TEACHER COMMENT SO THAT THE SCORES AND COMMENTS STICK TOGETHER
-currUser.teacherComment(6, -111, 'VERY DUMB PERSON')
+currUser.teacherComment(7, 10)
+currUser.classComment(0, 0, "bad bad class do not take")
