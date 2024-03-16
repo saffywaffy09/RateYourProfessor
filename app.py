@@ -62,6 +62,12 @@ def success():
     else:
         return render_template('success.html',  user=user, class_count = len(user.classes))
 
+@app.route('/class/<int:class_id>')
+def class_page(class_id):
+    # Fetch class information from the database using class_id
+    # Render the class page HTML template
+    return render_template('class_page.html', class_id=class_id, user = user)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

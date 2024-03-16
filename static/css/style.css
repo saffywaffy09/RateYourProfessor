@@ -64,3 +64,8 @@ button[type="submit"]:hover {
     background-color: #254785; /* Darker shade on hover */
 }
 
+.class-link {
+    color: inherit; /* Use the default text color */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
