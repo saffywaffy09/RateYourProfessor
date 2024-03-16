@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="made a simple website that allows user to enter username and password and all of their data syncs up to our sqlite3 db">
+    <list default="true" id="e9c747a7-f4d4-4faf-b534-37bd781c08ac" name="Changes" comment="had an unnecessary function">
+      <change afterPath="$PROJECT_DIR$/templates/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.db" beforeDir="false" afterPath="$PROJECT_DIR$/example.db" afterDir="false" />
     </list>
     <list id="eee338e1-9085-4c28-b980-e505d1c313b1" name="Changes by 172834" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +301,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710520488308</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="very cool rainbow Login txt">
+      <option name="closed" value="true" />
+      <created>1710521104347</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710521104347</updated>
+    </task>
+    <task id="LOCAL-00027" summary="had an unnecessary function">
+      <option name="closed" value="true" />
+      <created>1710521253402</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710521253402</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,6 +350,8 @@
     <MESSAGE value="did stuff" />
     <MESSAGE value="really bad stuff" />
     <MESSAGE value="made a simple website that allows user to enter username and password and all of their data syncs up to our sqlite3 db" />
-    <option name="LAST_COMMIT_MESSAGE" value="made a simple website that allows user to enter username and password and all of their data syncs up to our sqlite3 db" />
+    <MESSAGE value="very cool rainbow Login txt" />
+    <MESSAGE value="had an unnecessary function" />
+    <option name="LAST_COMMIT_MESSAGE" value="had an unnecessary function" />
   </component>
 </project>

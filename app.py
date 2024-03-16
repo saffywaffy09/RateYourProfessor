@@ -5,7 +5,8 @@ import sqlite3
 app = Flask(__name__)
 app.config["DATABASE"] = 'example.db'
 
-# Define your routes
+# Static variables
+user = None
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -40,7 +41,8 @@ def submit():
             password = request.form['password']
 
             # Call the relevant function from Main.py
-            Main.createUser(username, password)
+            global user
+            user = Main.createUser(username, password)
 
             # Commit the transaction
             g.db.commit()
@@ -53,7 +55,12 @@ def submit():
 
 @app.route('/success')
 def success():
-    return "User created successfully!"  # Display a success message
+    global user
+    if user is None:
+        return "User not found."
+
+    else:
+        return render_template('success.html',  user=user)
 
 
 if __name__ == '__main__':

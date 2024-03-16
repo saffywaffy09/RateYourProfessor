@@ -131,6 +131,7 @@ def addSchedule(username, password):
     connection.commit()
 
 def createUser (username, password):
+    print(password)
     sv = StudentVue(username, password, "https://md-mcps-psv.edupoint.com")
     studentInfo = sv.get_student_info()
     studentName = studentInfo["StudentInfo"]["FormattedName"]["$"]
