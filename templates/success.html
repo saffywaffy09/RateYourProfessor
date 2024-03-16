@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1>User Classes</h1>
+    <h1>{{user.username}}'s Classes</h1>
     <ul>
-        {% for class_name in user.classes %}
-            <li>{{ class_name }}</li>
+        {% for i in range(class_count) %}
+            <li>{{ user.classes[i] }} - {{ user.teachers[i] }}</li>
         {% endfor %}
     </ul>
 </body>

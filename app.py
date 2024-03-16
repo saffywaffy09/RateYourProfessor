@@ -60,7 +60,7 @@ def success():
         return "User not found."
 
     else:
-        return render_template('success.html',  user=user)
+        return render_template('success.html',  user=user, class_count = len(user.classes))
 
 
 if __name__ == '__main__':

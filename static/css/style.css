@@ -13,3 +13,29 @@ h1 {
     animation: rainbow 3s infinite !important;
 }
 
+/* Dark mode styles with a touch of blue */
+body {
+    background-color: #1f1f2e; /* Slightly lighter dark background color */
+    color: #ffffff; /* Light text color */
+    font-family: Arial, sans-serif; /* Use a common sans-serif font */
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #2c2c3e; /* Darker border between list items */
+    border-radius: 8px; /* Add some rounding to the list items */
+}
+
+/* Hover effect for list items */
+li:hover {
+    background-color: #28283a; /* Darker background color on hover */
+}
+
+
+
+
