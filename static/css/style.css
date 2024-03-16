@@ -36,6 +36,31 @@ li:hover {
     background-color: #28283a; /* Darker background color on hover */
 }
 
+/* Dark mode styles for login page */
+input[type="text"], input[type="password"] {
+    background-color: #3d3d4d; /* Darker background color for text boxes */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #2c2c3e; /* Darker border */
+    border-radius: 10px; /* Add some rounding to the text boxes */
+    padding: 10px; /* Add padding for better spacing */
+    margin: 5px;
+    width: 15%; /* Make the text boxes take up full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
 
+/* Style for the submit button */
+button[type="submit"] {
+    background-color: #3366cc; /* Adjust the color as needed */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    margin: 5px
+}
 
+/* Style for the submit button on hover */
+button[type="submit"]:hover {
+    background-color: #254785; /* Darker shade on hover */
+}
 
